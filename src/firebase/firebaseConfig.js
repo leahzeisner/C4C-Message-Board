@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -13,7 +13,12 @@ export const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 
-export default db;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    auth.updateCurrentUser(user)
+  } else {
+  }
+});

@@ -1,15 +1,14 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection, getDoc, getDocs, doc } from "@firebase/firestore";
-import { getAuth, signOut } from "firebase/auth";
-import MessagesList from './MessagesList';
-import db from '../firebase/firebaseConfig';
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import MessagesList from '../components/MessagesList';
+import {db, auth} from '../firebase/firebaseConfig';
 import { MESSAGES_COLLECTION, USERS_COLLECTION } from '../utils/constants';
+import "firebase/auth";
 
 const Filter = require('bad-words');
 const filter = new Filter({ placeHolder: 'x'});
-
-const auth = getAuth();
 
 
 export default function MessageBoard() {
@@ -20,23 +19,8 @@ export default function MessageBoard() {
     const navigate = useNavigate();
 
     useEffect(() => {
-      fetchMessages();
-    })
-
-    useEffect(() => {
       fetchName();
-    })
-  
-    const fetchMessages = async() => {
-      await getDocs(collection(db, MESSAGES_COLLECTION))
-        .then((querySnapshot) => {
-          let newMsgData = querySnapshot.docs.map((doc) => ({
-            ...doc.data()
-          }));
-          newMsgData = sortMessages(newMsgData);
-          setMessages(newMsgData);                
-        });
-    }
+    }, [])
 
     const fetchName = async() => {
       const userEmail = auth.currentUser.email;
@@ -47,9 +31,23 @@ export default function MessageBoard() {
         const username = data.username;
         setUsername(username);
       } else {
-        setUsername("unknown user");
+        setUsername(null);
       }
     }
+  
+    useEffect(() => {
+      const fetchMessages = async() => {
+        getDocs(collection(db, MESSAGES_COLLECTION))
+        .then((querySnapshot) => {
+          let newMsgData = querySnapshot.docs.map((doc) => ({
+            ...doc.data()
+          }));
+          newMsgData = sortMessages(newMsgData);
+          setMessages(newMsgData);                
+        });
+      }
+      fetchMessages();
+    }, [])
   
     const sortMessages = (messages) => {
       return messages.sort((msg1, msg2) => {
@@ -76,13 +74,17 @@ export default function MessageBoard() {
           timestamp: Date.now(),
           author: username
         }
+
+        const updatedMessages = sortMessages([...messages, messageData]);
+        setMessages(updatedMessages);
+        setCharCount(0);
+
+        addDoc(collection(db, MESSAGES_COLLECTION), messageData)
+        .catch((e) => {
+          console.log(e);
+        })
       
-        try {
-          addDoc(collection(db, MESSAGES_COLLECTION), messageData);
-          fetchMessages();
-        } catch(err) {
-            console.log(err);
-        }
+
         dataRef.current.value = "";
       }
 

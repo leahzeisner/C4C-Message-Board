@@ -1,7 +1,7 @@
 import './App.css';
-import MessageBoard from './components/MessageBoard';
-import Login from './components/Login';
-import Register from './components/Register';
+import MessageBoard from './pages/MessageBoard';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
