@@ -1,6 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { createContext, useContext } from 'react'
+
+const AuthContext = createContext()
+
+export function useAuth() {
+  return useContext(AuthContext)
+}
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -22,3 +29,20 @@ onAuthStateChanged(auth, (user) => {
   } else {
   }
 });
+
+export function AuthProvider({ children }) {
+  function getUser() {
+    return auth.currentUser
+  }
+
+  const value = {
+    getUser,
+  }
+
+  return (
+    <AuthContext.Provider value={value}>
+      { children }
+    </AuthContext.Provider>
+  )
+
+}

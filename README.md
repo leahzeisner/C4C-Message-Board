@@ -1,74 +1,75 @@
-<<<<<<< HEAD
+
 # C4C-Message-Board
-=======
-# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It was stylized using the Tailwind CSS framework.
 
-## Available Scripts
+This is a Message Board application for C4C. Users can register and login via Firebase email/password authentication.
+Once authenticated, they are brought to the message board. Here, they can see all the current messages on the board, as well as post messages of their own.
+All messages and user information is stored in Cloud Firestore for Firebase.
 
-In the project directory, you can run:
+## Pages
 
-### `npm start`
+`Login.js` - handles user login & Firebase authentication
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`Register.js` - handles user registration & creating authenticated users in Firebase
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`MessageBoard.js` - handles all message board ui components and actions
 
-### `npm test`
+## Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`Header.js` - contains a welcome message for the current user, the logout button, and the page header. The logout button uses Firebase to sign out the current authenticated user.
 
-### `npm run build`
+`MessageInput.js` - handles message posting & updating the state. When a message is posted, it updates the messages in Firebase, as well as in the MessageList component.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`MessageList.js` - displays all current messages stored in Firebase, as a list of <b>Message</b> components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`Message.js` - component for a single message, which contains the message text, author, and timestamp for when it was posted
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Requirements Covered
 
-### `npm run eject`
+This project covers all the requirements outlined in the project description. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A user can post a message to the board. Their message must be non-empty and at most 128 characters. There is a character count to display the current length of the message. Once the count reaches 128, the user cannot type anything else into the input box.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The messages on the board are sorted from most to least recent, with the most recent being on top.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The app uses Firebase to store the messages so that users on different computers can post to the same board and see all other messages 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Additional Details
 
-## Learn More
+1. The use of Firebase ensures the data persists on disk
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Users can signup, login, logout, and post under a username. Their username is displayed in the <b>Header</b> component, as well as on each message they post.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. The app uses the npm "bad-words" package to filter out any innappropriate language posted by a user. It replaces any bad language with x's
 
-### Code Splitting
+4. Character count for better user experience
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Future implementation plans
 
-### Analyzing the Bundle Size
+1. Allow users to edit or delete their messages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Allow users to edit their profile (email, password, username)
 
-### Making a Progressive Web App
+3. Enable searching for specific messages via keywords
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Enable hashtags on posts and searching for messages via hashtags
 
-### Advanced Configuration
+5. Allow message reporting, and include a red flag icon on any reported messages or messages filtered by the "bad-words" package.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+6. Allow additional sign-in methods besides email/password, such as Google, Facebook, Apple, Twitter
 
-### Deployment
+7. Add additional authentication security via SMS Multi-factor Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## How to start the application
 
-### `npm run build` fails to minify
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> 82e62cb152cacf274cdd0d7b233d7cc99e824a2d
+1. [Install "Node.js" and "npm"](https://nodejs.org/en/download/current/) 
+
+### Running on localhost:
+
+1. Run `npm start`
+
+2. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
