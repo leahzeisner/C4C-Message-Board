@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { doc, setDoc } from "@firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
-import db from '../firebase/firebaseConfig';
-
-const auth = getAuth();
+import {db, auth} from '../firebase/firebaseConfig';
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -25,7 +23,7 @@ export default function Register() {
     if (error) {
         navigate("/register");
     }
-  }, [user, loading]);
+  });
 
   const registerWithEmailAndPassword = async (username, email, password) => {
     try {
@@ -52,7 +50,7 @@ export default function Register() {
         <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
 
             <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-3/12 lg:w-4/12 md:w-6/12 mb-12 md:mb-0">
-                <img src={require("../img/c4c.png")} className="w-full" alt="C4C image" />
+                <img src={require("../img/c4c.png")} className="w-full" alt="C4C" />
             </div>
 
             <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
