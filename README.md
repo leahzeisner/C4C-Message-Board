@@ -71,6 +71,8 @@ The app uses Firebase Cloud Firestore to store the messages so that users on dif
 
 ### Running on localhost:
 
-1. Run `npm start`
+1. Run `npm install`
 
-2. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Run `npm start`
+
+3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
