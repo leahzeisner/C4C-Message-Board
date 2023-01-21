@@ -39,29 +39,29 @@ The app uses Firebase Cloud Firestore to store the messages so that users on dif
 
 ## Additional Details
 
-1. The use of Firebase ensures the data persists on disk
+1. The use of Firebase ensures the data persists on disk.
 
 2. Users can signup, login, logout, and post under a username. Their username is displayed in the <b>Header</b> component, as well as on each message they post.
 
-3. The app uses the npm "bad-words" package to filter out any innappropriate language posted by a user. It replaces any bad language with x's
+3. The app uses the npm "bad-words" package to filter out any innappropriate language posted by a user. It replaces any bad language with x's.
 
-4. There's a character count that updates as the user types for better user experience
+4. There's a character count that updates as the user types for better user experience.
 
 ## Future implementation plans
 
-1. Allow users to edit or delete their messages
+1. Allow users to edit or delete their messages.
 
-2. Allow users to edit their profile (email, password, username)
+2. Allow users to edit their profile (email, password, username).
 
-3. Enable searching for specific messages via keywords
+3. Enable searching for specific messages via keywords.
 
-4. Enable hashtags on posts and searching for messages via hashtags
+4. Enable hashtags on posts and searching for messages via hashtags.
 
 5. Allow message reporting, and include a red flag icon on any reported messages or messages filtered by the "bad-words" package.
 
-6. Allow additional sign-in methods besides email/password, such as Google, Facebook, Apple, Twitter
+6. Allow additional sign-in methods besides email/password, such as Google, Facebook, Apple, Twitter.
 
-7. Add additional authentication security via SMS Multi-factor Authentication
+7. Add additional authentication security via SMS Multi-factor Authentication.
 
 ## How to start the application
 
