@@ -59,11 +59,13 @@ The app uses Firebase Cloud Firestore to store the messages so that users on dif
 
 5. Allow message reporting, and include a red flag icon on any reported messages or messages filtered by the "bad-words" package.
 
-6. Allow additional sign-in methods besides email/password, such as Google, Facebook, Apple, Twitter.
+6. Add functionality to reply to messages and start threads
 
-7. Add additional authentication security via SMS Multi-factor Authentication.
+7. Allow additional sign-in methods besides email/password, such as Google, Facebook, Apple, Twitter.
 
-8. Add styling for mobile use
+8. Add additional authentication security via SMS Multi-factor Authentication.
+
+9. Add styling for mobile use
 
 ## How to start the application
 
