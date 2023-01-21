@@ -33,9 +33,9 @@ This project covers all the requirements outlined in the project description.
 
 A user can post a message to the board. Their message must be non-empty and at most 128 characters. There is a character count to display the current length of the message. Once the count reaches 128, the user cannot type anything else into the input box.
 
-The messages on the board are sorted from most to least recent, with the most recent being on top.
+The messages on the board are sorted top-down from most to least recent.
 
-The app uses Firebase to store the messages so that users on different computers can post to the same board and see all other messages 
+The app uses Firebase Cloud Firestore to store the messages so that users on different computers and operating systems can post to the same board and view all the other messages.
 
 ## Additional Details
 
