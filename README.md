@@ -39,7 +39,7 @@ The app uses Firebase Cloud Firestore to store the messages so that users on dif
 
 ## Additional Details
 
-1. The use of Firebase ensures the data persists on disk.
+1. The use of Firebase ensures the data persists on disk (on a server).
 
 2. Users can signup, login, logout, and post under a username. Their username is displayed in the <b>Header</b> component, as well as on each message they post.
 
