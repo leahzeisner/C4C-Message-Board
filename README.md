@@ -45,7 +45,7 @@ The app uses Firebase Cloud Firestore to store the messages so that users on dif
 
 3. The app uses the npm "bad-words" package to filter out any innappropriate language posted by a user. It replaces any bad language with x's
 
-4. Character count for better user experience
+4. There's a character count that updates as the user types for better user experience
 
 ## Future implementation plans
 
