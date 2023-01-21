@@ -6,26 +6,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 It was stylized using the [Tailwind CSS](https://tailwindcss.com/) framework.
 
 This is a Message Board application for C4C. Users can register and login via Firebase email/password authentication.
-Once authenticated, they are brought to the message board. Here, they can see all the current messages on the board, as well as post messages of their own.
-All messages and user information is stored in Cloud Firestore for Firebase.
+Once authenticated, they are brought to the message board. Here, they can see all the current messages on the board, and they can post messages of their own.
+All messages and user information are stored in Cloud Firestore for Firebase.
 
 ## Pages
 
-`Login.js` - handles user login & Firebase authentication
+`Login.js` - Handles user login & Firebase authentication.
 
-`Register.js` - handles user registration & creating authenticated users in Firebase
+`Register.js` - Handles user registration & creating authenticated users in Firebase.
 
-`MessageBoard.js` - handles all message board ui components and actions
+`MessageBoard.js` - Handles all message board ui components and actions.
 
 ## Components
 
-`Header.js` - contains a welcome message for the current user, the logout button, and the page header. The logout button uses Firebase to sign out the current authenticated user.
+`Header.js` - Contains a welcome message for the current user, the logout button, and the page title. The logout button uses Firebase to sign out the current authenticated user.
 
-`MessageInput.js` - handles message posting & updating the state. When a message is posted, it updates the messages in Firebase, as well as in the MessageList component.
+`MessageInput.js` - Handles message posting & updating the state. When a message is posted, it updates the messages in Firebase, and updates the state of the <b>MessagesList</b> component.
 
-`MessageList.js` - displays all current messages stored in Firebase, as a list of <b>Message</b> components
+`MessageList.js` - Displays all the current messages stored in Firebase as a list of <b>Message</b> components.
 
-`Message.js` - component for a single message, which contains the message text, author, and timestamp for when it was posted
+`Message.js` - The component for a single message, which contains the message's text, author, and a timestamp for when it was posted.
 
 ## Requirements Covered
 
