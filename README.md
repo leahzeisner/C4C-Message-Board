@@ -63,16 +63,20 @@ The app uses Firebase Cloud Firestore to store the messages so that users on dif
 
 7. Add additional authentication security via SMS Multi-factor Authentication.
 
+8. Add styling for mobile use
+
 ## How to start the application
 
 ### Prerequisites
 
 1. [Install "Node.js" and "npm"](https://nodejs.org/en/download/current/) 
 
-### Running on localhost:
+### Set up / Running on localhost:
 
-1. Run `npm install`
+1. Rename the `.env.example` file located in the root directory to `.env` and paste in the values sent to you in the email.
 
-2. Run `npm start`
+2. Run `npm install`
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Run `npm start`
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
