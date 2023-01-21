@@ -2,7 +2,8 @@
 # C4C-Message-Board
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-It was stylized using the Tailwind CSS framework.
+
+It was stylized using the [Tailwind CSS](https://tailwindcss.com/) framework.
 
 This is a Message Board application for C4C. Users can register and login via Firebase email/password authentication.
 Once authenticated, they are brought to the message board. Here, they can see all the current messages on the board, as well as post messages of their own.
